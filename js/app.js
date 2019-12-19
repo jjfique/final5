@@ -195,24 +195,24 @@ function eliminarFila(PocicionDulce, FilaDulce) {
 
 //contador de puntuacion muestra la puntuacion
 function Puntaje(contarDulces) {
-	var score = Number($('#score-text').text());
+	var puntos = Number($('#score-text').text());
 	switch (contarDulces) {
 		case 3:
-			score += 10;
+			puntos += 10;
 			break;
 		case 4:
-			score += 20;
+			puntos += 20;
 			break;
 		case 5:
-			score += 30;
+			puntos += 30;
 			break;
 		case 6:
-			score += 50;
+			puntos += 50;
 			break;
 		case 7:
-			score += 100;
+			puntos += 100;
 	}
-	$('#score-text').text(score);
+	$('#score-text').text(puntos);
 }
 
 //pone los elemento caramelo en el tablero
@@ -225,11 +225,11 @@ function fillBoard() {
 	var column = $('[class^="col-"]');
 
 	column.each(function () {
-		var candys = $(this).children().length;
-		var agrega = top - candys;
+		var dulces = $(this).children().length;
+		var agrega = top - dulces;
 		for (var i = 0; i < agrega; i++) {
 			var candyType = getRandomInt(1, 5);
-			if (i === 0 && candys < 1) {
+			if (i === 0 && dulces < 1) {
 				$(this).append('<img src="image/' + candyType + '.png" class="element"></img>');
 			} else {
 				$(this).find('img:eq(0)').before('<img src="image/' + candyType + '.png" class="element"></img>');
